@@ -19,25 +19,21 @@ import {
 
 import { IconModule } from '@coreui/icons-angular';
 
-import { DocsComponentsModule } from '@docs-components/docs-components.module';
+import { DocsComponentsModule } from '../../../components/docs-components.module';
 import { NotificationsRoutingModule } from './notifications-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AlertsComponent } from './alerts/alerts.component';
 import { BadgesComponent } from './badges/badges.component';
 import { ModalsComponent } from './modals/modals.component';
-// import { ToastsComponent } from './toasts/toasts.component';
 import { ToastersComponent } from './toasters/toasters.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppToastComponent } from './toasters/toast-simple/toast.component';
 
 @NgModule({
   declarations: [
     BadgesComponent,
     AlertsComponent,
     ModalsComponent,
-    // ToastsComponent,
     ToastersComponent,
-    AppToastComponent,
   ],
   imports: [
     CommonModule,
@@ -57,8 +53,8 @@ import { AppToastComponent } from './toasters/toast-simple/toast.component';
     TooltipModule,
     PopoverModule,
     ProgressModule,
-    IconModule
-  ],
+    IconModule,
+  ]
 })
 export class NotificationsModule {
 }
