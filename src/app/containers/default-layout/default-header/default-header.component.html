@@ -146,7 +146,7 @@
         <hr cDropdownDivider/>
       </li> -->
       <li>
-        <a routerLink="./" cDropdownItem>
+        <a (click)="onLogout()" cDropdownItem>
           <svg cIcon class="me-2" name="cilLockLocked"></svg>
           Log out
         </a>
@@ -155,4 +155,3 @@
     </ul>
   </c-dropdown>
 </ng-template>
-

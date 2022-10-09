@@ -3,6 +3,8 @@ import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@a
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+
 
 import {
   PERFECT_SCROLLBAR_CONFIG,
@@ -46,6 +48,15 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 
+//FIREBASE
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from "@angular/fire/auth";
+
+import { environment } from '../environments/environment';
+
+import { ToastrModule } from 'ngx-toastr';
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
 };
@@ -85,6 +96,11 @@ const APP_CONTAINERS = [
     BadgeModule,
     ListGroupModule,
     CardModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
+    FormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     {
